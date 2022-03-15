@@ -5,9 +5,11 @@ import matter from 'gray-matter'
 
 export default function Home({ posts }) {
   return (
-    <div className='flex flex-col'>
-      <p>interested in education, psychology, programming, economics, mental models, sci-fi.</p>
-      <p>Writing:</p>
+    <div className='flex flex-col px-4'>
+      <p>{'Interested in education, psychology, programming, economics, mental models, sci-fi.'}</p>
+      <div className='h-4' />
+      <p className='text-lg'>{'Writing:'}</p>
+      <p>{`A series of mild rants that I'm putting up here to incentivise myself to write more`}</p>
       {posts.map(({ slug, title }) => (
         <Link key={slug} href={`/post/${slug}`}>
           <a className='hover:underline'>

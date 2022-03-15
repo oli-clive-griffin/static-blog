@@ -2,7 +2,7 @@
 title: Don't measure yourself against the average
 --- 
 
-Something I've come to realise over the last year is that [[Standards]] dictate an awful lot of my behaviour. We are memetic creatures after all. "you are the average of the 5 people you spend the most time with". 
+Something I've come to realise over the last year is that Standards dictate an awful lot of my behaviour. We are memetic creatures after all. "you are the average of the 5 people you spend the most time with". 
 
 
 When you're trying to be really good at something. there's A trick that your mind can play on you: measuring your success against the average. 
@@ -23,7 +23,7 @@ Inside, you know you can do better. Not in every part of your life. Aiming fo un
 Imagine Michael Jordan thinking to himself: "Wow! I'm so talented and hard-working that I have become the best player in school! how awesome I am". This is ridiculous, the reality is that Michael Jordan held himself to far higher standards -- Not necessarily in arrogance or conceit, but with a cold, realistic knowledge that he was better than everyone and where they were straining to barely compete on his level, he barely needed to try. Michael Jordan instead Held himself to his own standards, are eventually became arguably the greatest basketball player of all time
 
 
-rule 4 in [[people/Jordan Peterson]]'s *[[12 Rules for life]]* is *Compare yourself to who you were yesterday, not who someone else is. today.* He mainly approaches this topic by illustrating the danger of comparing yourself unfavourably with those superstars we are so constantly told about. Something like "ugh, I'm never gonna be as good at Tennis as Rafael Nadal". This. is obviously true, and the book is excellent. But I want to highlight the danger of the opposite; of justifying your own uselessness by comparisons to the equally useless general population. 
+rule 4 in 12 Rules for life is *Compare yourself to who you were yesterday, not who someone else is. today.* He mainly approaches this topic by illustrating the danger of comparing yourself unfavourably with those superstars we are so constantly told about. Something like "ugh, I'm never gonna be as good at Tennis as Rafael Nadal". This. is obviously true, and the book is excellent. But I want to highlight the danger of the opposite; of justifying your own uselessness by comparisons to the equally useless general population. 
 
 
 Even our heroes are useless in most dimensions. Or worse. It's no secret that musicians and artists everywhere are generally cursed by alcoholism, drug abuse, sex addiction, infidelity and generally out-of-shape lives. People are generally only really good at a few things, and at best mediocre at everything at else. try to come up with someone you know who is in great shape, has a good family life, a good career, a great sense of humour, excels in many hobbies, is well read, and is a great cook. You may know someone like this, or even multiple, and if so, Aweome! but now think about how many other people you went through trying to find an all round impressive individual. At the end of the day, most people are not very good at most things.

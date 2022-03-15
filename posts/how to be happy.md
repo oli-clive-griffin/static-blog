@@ -2,7 +2,7 @@
 title: How to be happy
 ---
 
-reliable ways to make yourself happier
+Just a few ways that've worked for me.
 
 
 go outside

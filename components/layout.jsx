@@ -3,8 +3,8 @@ import Link from 'next/link';
 export default function Layout({ children }) {
   return (
     <div className='flex flex-col min-h-screen'>
-      <header className='mb-8 py-4 bg-fuchsia-100'>
-        <div className='container mx-auto flex justify-start'>
+      <header className='sticky top-0 z-50 mb-8 py-4 bg-fuchsia-100'>
+        <div className='container mx-auto flex justify-start px-4'>
           <Link href='/'>
             <a>Oli Clive-Griffin</a>
           </Link>
