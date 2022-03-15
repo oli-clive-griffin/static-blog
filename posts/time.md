@@ -1,5 +1,5 @@
 ---
-title: Thought on time
+title: Thoughts on time
 ---
 
 There's not much time really.
