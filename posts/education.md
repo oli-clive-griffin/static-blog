@@ -3,9 +3,9 @@ title: A new Education framework
 ---
 
 Assumptions
-1. **A purpose of humanity is to act effecitively in the world to improve lives and reduce suffering.**
-2. **Education is a tool for society to teach it's children to do #1**
-3. **Technological and progress means the world changes quickly, meaning that to continually act effectively you must continually learn.**
+1. A purpose of humanity is to act effecitively in the world to improve lives and reduce suffering.
+2. Education is a tool for society to teach it's children to do #1
+3. Technological and progress means the world changes quickly, meaning that to continually act effectively you must continually learn.
 
 
 We complain a lot about our modern education system. It was designed for the industrial revolution to create obediate workers.
