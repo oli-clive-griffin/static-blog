@@ -13,7 +13,7 @@ export default function PostPage({ title, content }) {
 }
 
 export async function getStaticPaths() {
-  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
+  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
   const {data, error} = await supabase.storage.from('blog-posts').list()
   if (error) throw new Error('error listing posts from supabse')
 
@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { title } }) {
-  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
+  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
 
   const {data, error} = await supabase.storage.from('blog-posts').download(title)
   if (error) throw new Error(`error fetching ${title} from supabse`)

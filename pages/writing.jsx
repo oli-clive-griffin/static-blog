@@ -16,12 +16,13 @@ const Writing = ({ titles }) => (
 )
 
 export const getStaticProps = async () => {
-  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
+  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
 
   const { data: blogPosts, error } = await supabase.storage.from('blog-posts').list()
   if (error) throw new Error(`error listing posts from supabse`)
 
   const titles = blogPosts.map(bp => bp.name.replace('.md', ''))
+  console.log(blogPosts)
 
   return {
     props: { titles },
