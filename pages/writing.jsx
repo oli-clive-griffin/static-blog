@@ -6,7 +6,7 @@ const Writing = ({ titles }) => (
     <p className='text-lg'>{'Writing:'}</p>
     <p>{`A series of mild rants that I'm putting up here to incentivise myself to write more.`}</p>
     {titles.map(title => (
-      <Link key={title} href={`/post/${title}.md`}>
+      <Link key={title} href={`/post/${title}`}>
         <a className='hover:underline w-fit'>
           - {title}
         </a>

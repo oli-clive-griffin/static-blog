@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 
   const paths = data.map(({ name }) => ({
       params: {
-        title: name
+        title: name.replace('.md', '')
       },
   }));
 
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { title } }) {
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY)
 
-  const {data, error} = await supabase.storage.from('blog-posts').download(title)
+  const {data, error} = await supabase.storage.from('blog-posts').download(`${title}.md`)
   if (error) throw new Error(`error fetching ${title} from supabse`)
 
   const { content } = matter(Buffer.from(await data.arrayBuffer()))
