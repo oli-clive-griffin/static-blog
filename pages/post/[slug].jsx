@@ -15,10 +15,14 @@ export default function PostPage({ frontmatter, content }) {
 }
 
 export async function getStaticPaths() {
-  const files = fs.readdirSync('posts');
-  const paths = files.map((fileName) => ({
+  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
+  const {data, error} = await supabase.storage.from('blog-posts').list()
+  if (error) throw new Error('error listing posts from supabse')
+  const fileNames = data.map(bp => bp.name)
+
+  const paths = fileNames.map((fileName) => ({
       params: {
-        slug: fileName.replace('.md', ''),
+        slug: fileName
       },
   }));
 
@@ -31,23 +35,14 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
 
-  const { data: blogPosts, error } = await supabase.storage.from('blog-posts').list()
-  for (const bp of blogPosts) {
-    const {data: file, error} = await supabase.storage.from('blog-posts').download(bp.name)
-    if (error) {
-      console.log(error)
-      continue
-    }
-    const buf = Buffer.from(await file.arrayBuffer())
-    await fs.promises.writeFile(`files/${bp.name}`, buf);
-  }
+  const {data, error} = await supabase.storage.from('blog-posts').download(bp.name)
+  if (error) throw new Error(`error fetching ${bp.name} from supabse`)
 
+  const { data: { title }, content } = matter(Buffer.from(await data.arrayBuffer()))
 
-  const fileName = fs.readFileSync(`posts/${slug}.md`, 'utf-8');
-  const { data: frontmatter, content } = matter(fileName);
   return {
     props: {
-      frontmatter,
+      title,
       content,
     },
   };

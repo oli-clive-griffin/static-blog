@@ -22,7 +22,7 @@ export const getStaticProps = async () => {
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
 
   const { data: blogPosts, error } = await supabase.storage.from('blog-posts').list()
-  if (error) return { props: { error: 'could not get blog posts' } }
+  if (error) throw new Error(`error listing posts from supabse`)
 
   const posts = blogPosts.map(async bp => ({
     slug: bp.name,
