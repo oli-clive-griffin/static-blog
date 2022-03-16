@@ -2,6 +2,7 @@ import Link from "next/link"
 import fs from 'fs'
 import matter from "gray-matter"
 import { join } from "path"
+import { createClient } from '@supabase/supabase-js'
 
 const Writing = ({ posts }) => (
   <div className='flex flex-col px-4'>
@@ -17,20 +18,17 @@ const Writing = ({ posts }) => (
   </div>
 )
 
-export const getStaticProps = () => {
-  const postsDirectory = join(process.cwd(), 'posts')
-  const fileNames = fs.readdirSync(postsDirectory)
+export const getStaticProps = async () => {
+  const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
 
-  const posts = fileNames.map(fileName => {
-    const slug = fileName.replace(/\.md$/, '')
-    const fileContents = fs.readFileSync(join(postsDirectory, fileName), 'utf8')
-    const matterResult = matter(fileContents)
+  const { data: blogPosts, error } = await supabase.storage.from('blog-posts').list()
+  if (error) return { props: { error: 'could not get blog posts' } }
 
-    return {
-      slug,
-      ...matterResult.data
-    }
-  }).filter(({ title }) => title != null)
+  const posts = blogPosts.map(async bp => ({
+    slug: bp.name,
+    title: matter(Buffer.from(await file.arrayBuffer())).title
+  }))
+    .filter(({ title }) => title != null)
 
   return {
     props: {
