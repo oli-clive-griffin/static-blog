@@ -1,13 +1,11 @@
-import fs from 'fs'
-import matter from 'gray-matter'
 import md from 'markdown-it'
+import matter from 'gray-matter'
 import { createClient } from '@supabase/supabase-js'
 
-
-export default function PostPage({ frontmatter, content }) {
+export default function PostPage({ title, content }) {
   return (
     <div className='max-w-2xl mb-24 post px-4'>
-      <h1 >{frontmatter.title}</h1>
+      <h1 >{title}</h1>
       <div className='line' />
       <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
     </div>
@@ -18,11 +16,10 @@ export async function getStaticPaths() {
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
   const {data, error} = await supabase.storage.from('blog-posts').list()
   if (error) throw new Error('error listing posts from supabse')
-  const fileNames = data.map(bp => bp.name)
 
-  const paths = fileNames.map((fileName) => ({
+  const paths = data.map(({ name }) => ({
       params: {
-        slug: fileName
+        title: name
       },
   }));
 
@@ -32,18 +29,15 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({ params: { title } }) {
   const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
 
-  const {data, error} = await supabase.storage.from('blog-posts').download(bp.name)
-  if (error) throw new Error(`error fetching ${bp.name} from supabse`)
+  const {data, error} = await supabase.storage.from('blog-posts').download(title)
+  if (error) throw new Error(`error fetching ${title} from supabse`)
 
-  const { data: { title }, content } = matter(Buffer.from(await data.arrayBuffer()))
+  const { content } = matter(Buffer.from(await data.arrayBuffer()))
 
   return {
-    props: {
-      title,
-      content,
-    },
+    props: { title, content }
   };
 }
