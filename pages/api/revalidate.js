@@ -1,4 +1,4 @@
-import BlogService from "../../lib/supabase"
+import BlogService from "../../lib/blog-service"
 
 export default async function handler(req, res) {
   if (req.query.secret !== process.env.REVALIDATION_KEY) {

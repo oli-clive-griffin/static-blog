@@ -1,5 +1,5 @@
 import Link from "next/link"
-import BlogService from "../lib/supabase"
+import BlogService from "../lib/blog-service"
 
 export const getStaticProps = async () => ({
   props: { titles: await BlogService.getPostTitles() },

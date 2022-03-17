@@ -1,5 +1,5 @@
 import md from 'markdown-it'
-import BlogService from '../../lib/supabase';
+import BlogService from '../../lib/blog-service';
 
 export const getStaticPaths = async () => ({
   paths: (await BlogService.getPostTitles()).map(title => ({
