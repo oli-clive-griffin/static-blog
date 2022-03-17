@@ -1,15 +1,15 @@
 import md from 'markdown-it'
-import Supabase from '../../lib/supabase';
+import BlogService from '../../lib/supabase';
 
 export const getStaticPaths = async () => ({
-    paths: (await Supabase.getPostTitles()).map(title => ({
-      params: { title }
-    })),
-    fallback: false,
-  })
+  paths: (await BlogService.getPostTitles()).map(title => ({
+    params: { title }
+  })),
+  fallback: false,
+})
 
 export const getStaticProps = async ({ params: { title } }) => ({
-  props: { title, content: await Supabase.getPostContent(title) },
+  props: { title, content: await BlogService.getPostContent(title) },
   revalidate: 60,
 })
 
