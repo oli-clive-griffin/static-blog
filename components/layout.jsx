@@ -10,9 +10,9 @@ export default function Layout({ children }) {
             <a className='font-bold'>Oli Clive-Griffin</a>
           </Link>
           <div className='w-16'/>
-          <Link href='/writing'>
+          {/* <Link href='/writing'>
             <a>Writing</a>
-          </Link>
+          </Link> */}
         </div>
       </header>
       <main className='container mx-auto flex-1'>
